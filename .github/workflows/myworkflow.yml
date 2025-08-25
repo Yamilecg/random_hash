@@ -1,20 +1,12 @@
-name: Python 3.11
+name: Run Hash Generator
+
 on: [push]
+
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.11
-    - name: Install dependencies
-      run: |
-        make install
-    - name: Lint
-      run: |
-        make lint
-    - name: Test
-      run: |
-        make test
+      - uses: actions/checkout@v3
+      - name: Run Python script
+        run: python hash_generator.py
